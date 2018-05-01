@@ -1,0 +1,40 @@
+{% load base_filter %}
+{% for question in questions %}
+    <div class="tab-pane {% if forloop.first %}active{% endif %}" data-id="{{ question.id }}" data-count="{{ count_base }}" id="question-{{ count_base }}" role="tabpanel">
+            <!--question section-->
+            <div id="base-question-{{ question.id }}" data-count="{{ count_base }}" class="col-xs-12 col-sm-12 col-md-12 clearfix">
+              <div class="question">
+                  {% if question.image %}
+                <div class="question-image">
+                  <img class="img-responsive" src="/media/{{ question.image }}" alt="">
+                </div>
+                  {% endif %}
+                <div class="question-text">
+                  <span>
+                    {{ question.question }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!--//question section-->
+
+            <!--answers section-->
+            <div class="col-md-12 answers clearfix">
+
+
+              <div class="col-md-6">
+                {% for answer in question.get_answer %}
+                <div class="col-md-12 answer answer-questions" data-number="{{ forloop.counter }}" data-question-id="{{ question.id }}" data-name-id="#base-question-{{ question.id }}" data-answer-id="{{ answer.id }}">
+                    <div class="variant">{{ abc|count:forloop.counter0 }})</div>
+                    <div class="answer-item">{{ answer.answer }}</div>
+                </div>
+                {% if forloop.counter|divisibleby:2 %}
+                  </div>
+                  <div class="col-md-6">
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            <!--//answers section-->
+              </div>
+{% endfor %}

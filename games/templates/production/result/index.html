@@ -1,0 +1,260 @@
+{% extends "production/test/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block social-headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="Xal:{{ statistic.get_right_answer_count }} Vaxt: {{ statistic.duration|duration_field }}">
+    <meta property="og:description" content="Sən də mok25.az saytına daxil ol, oyna, Olimpiya biliklərini yoxla, qalib gəl və dəyərli hədiyyələrin sahibi ol!">
+    {% if statistic.answer_count == 10 %}
+     <meta property="og:image" content="http://{{ request.get_host }}{% static 'olimpiad/img/winner.jpg' %}">
+    {% else %}
+    <meta property="og:image" content="http://{{ request.get_host }}/static/olimpiad/img/fb{{ statistic.player.result_num }}.png">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri  }}">
+
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if statistic.answer_count == 10 %}
+     <meta name="twitter:image" content="http://{{ request.get_host }}{% static 'olimpiad/img/winner.jpg' %}">
+    {% else %}
+    <meta name="twitter:image" content="http://{{ request.get_host }}/static/olimpiad/img/fb{{ statistic.player.result_num }}.png">
+    {% endif %}
+
+    <meta name="twitter:image:alt" content="Mok25">
+    <meta name="twitter:creator" content="@labrin"/>
+    <meta name="twitter:site" content="@nocazerbaijan">
+    {% endblock %}
+{% block no-music %}{% endblock %}
+{% block auto-play %}{% endblock %}
+{% block main-class %}result-page go-back{% endblock %}
+{% block overlay %}
+    <div class="overlay">
+           <div class="result_container col-xs-12" {% if statistic.answer_count == 10 %}style="width: 564px;" {% endif %}>
+               <div class="title pull-right">
+                  {% if not statistic.player.aditional_chance %}
+                    {% if statistic.player.count == 0 %}
+                        <p>3 oyun haqqı qaldı</p>
+                    {% elif statistic.player.count == 1 %}
+                       <p>2 oyun haqqı qaldı</p>
+                    {% elif statistic.player.count == 2 %}
+                       <p>1 oyun haqqı qaldı</p>
+                    {% else %}
+                        <p>Oyun haqqınız qalmadı</p>
+                    {% endif %}
+                {% else %}
+                    {% if statistic.player.count == 0 %}
+                        <p>{{ statistic.player.aditional_games_count|add:"3" }} oyun haqqı qaldı</p>
+                    {% elif statistic.player.count == 1 %}
+                       <p>{{ statistic.player.aditional_games_count|add:"2" }} oyun haqqı qaldı</p>
+                    {% elif statistic.player.count == 2 %}
+                       <p>{{ statistic.player.aditional_games_count|add:"1" }} oyun haqqı qaldı</p>
+                    {% else %}
+                        <p>{{ statistic.player.aditional_games_count }} oyun haqqı qaldı</p>
+                    {% endif %}
+                {% endif %}
+               </div>
+                <div class="pull-left safe-exit">
+                  <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+              </div>
+               {% if statistic.answer_count == 10 %}
+                   <img src="{% static 'olimpiad/img/winner.jpg' %}" alt="" class="img-responsive">
+                {% else %}
+               <img src="http://{{ request.get_host }}/static/olimpiad/img/results_{{ statistic.player.result_num }}.png" alt="" class="img-responsive">
+
+
+               <div class="main-result {% if count == 2 %}count-2{% else %}count-3{% endif %}">
+                   <div>XAL:{{ statistic.answer_count }}<br>VAXT: {{ statistic.duration|duration_field }}</div>
+               </div>
+                {% endif %}
+               <div class="bottom-container">
+                   <div class="element pull-right">
+                        <div class="group facebook-share">
+                            <a class="fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://{{ request.get_host }}/share-result/?g_s={{ statistic.game_session }}&amp;rel=facebook&amp;index=on&src=sdkpreparse">
+                                <i class="fa fa-facebook"></i> Share on Facebook
+                            </a>
+                        </div>
+                    </div>
+                   <div class="continue_button pull-left">
+
+                   {% if count == 3 %}
+                       <a href="" class="share">Əlavə oyun haqqı üçün <br/> 5 dostunuzu dəvət edin</a>
+                   {% else %}
+                       {% if not statistic.player.is_authenticated %}
+                             <a href="{% url 'social:begin' 'facebook' %}" class="safety">Davam etmək</a>
+                        {% else %}
+                           {% if not statistic.player.aditional_chance and count > 4 %}
+                               <a href="" class="share">Əlavə oyun haqqı üçün <br/> 5 dostunuzu dəvət edin</a>
+                           {% else %}
+                            <a href="{% url 'base:test-online' %}" class="safety">Davam etmək</a>
+                           {% endif %}
+                        {% endif %}
+                   {% endif %}
+                   </div>
+               </div>
+           </div>
+
+   </div>
+{% endblock %}
+{% block user-section %}
+        <div class="col-xs-6 col-sm-6 col-md-12 padd-0">
+          <div class="user-section">
+            <div class="user">
+              <div class="user-icon">
+                  <img class="img-responsive" src="http://graph.facebook.com/{{ statistic.player.social_auth|get_uuid }}/picture?width=150&height=150" alt="">
+               </div>
+              <div class="user-name">
+                <span>{{ statistic.player.first_name }}<br>{{ statistic.player.last_name }}</span>
+              </div>
+            </div>
+            <div class="share share-section">
+              <a class="tooltips" href="#">
+              	<i class="fa fa-info-circle" aria-hidden="true"></i>
+				 <span><div>Dostlarını dəvət et</div></br>1. Əlavə oyun haqqı qazanmaq üçün 5 dostunu dəvət et.</br></br>2. Dostlarını mobildən tag edərək, desktopdan isə mesaj göndərərək dəvət edə bilərsən.</br></br>3. Əlavə oyun haqqı hər bir istifadəçiyə gün ərzində yalnız 1 dəfə verilir.</span>
+              </a>
+              <img class="img-fb-icon" src="{% static 'olimpiad/img/fb_add.svg' %}" alt="">
+            </div>
+          </div>
+        </div>
+        {% endblock %}
+{% block time-star %}
+        <!--Time section-->
+        <div class="col-xs-6 col-sm-6 col-md-12 padd-0">
+          <div class="time">
+            <span>{{ statistic.duration|duration_field }}</span>
+          </div>
+        </div>
+        <!--//Time section-->
+
+        <!--star section-->
+        <div class="col-xs-6 col-sm-6 col-md-12 padd-0 clearfix">
+          <div class="stars">
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item " aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item " aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item " aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item " aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item " aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item " aria-hidden="true"></i>
+            <i class="fa fa-star star-big star-8 star-item" aria-hidden="true"></i>
+            <i class="fa fa-star star-big star-9 star-item" aria-hidden="true"></i>
+            <i class="fa fa-star star-big star-10 star-item" aria-hidden="true"></i>
+          </div>
+        </div>
+        <!--//star section-->
+            <script>
+                var right_answers = Number({{ statistic.get_right_answer_count }});
+                for(var i = 0; i < right_answers; i++) {
+                    var star = $('.stars > i.star-yellow:last');
+                    star.next().addClass('star-yellow');
+                }
+            </script>
+        {% endblock %}
+
+{% block date-point %}
+        <div class="col-md-12 date-point">
+          <div class="col-md-4">
+            <div class="date">HƏFTƏ</div>
+            <div class="point"><h6>XAL</h6><h4>{{ statistic.player.point_week }}</h4></div>
+          </div>
+          <div class="col-md-4">
+            <div class="date">AY</div>
+            <div class="point"><h6>XAL</h6><h4>{{ statistic.player.point_month }}<h4></div>
+          </div>
+          <div class="col-md-4">
+            <div class="date">YEKUN</div>
+            <div class="point"><h6>XAL</h6><h4>{{ statistic.player.point }}<h4></div>
+          </div>
+        </div>
+            {% endblock %}
+
+{% block middle-section %}
+    <!--===============middle column===============-->
+      <div class="col-xs-12 col-sm-12 col-md-6">
+
+       <!--help section-->
+        <div class="col-xs-12 col-sm-12 col-md-12 help clearfix">
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="help-1 joker-item {% if statistic.half_question_joker %}joker-color{% endif %}">
+              <div class="help-circle">
+                <img unselectable="on" class="joker-1" src="{% static 'olimpiad/img/joker-icon-1.png' %}" alt="">
+              </div>
+              <span>50:50</span>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="help-2 joker-item {% if statistic.change_question_joker %}joker-color{% endif %}">
+              <div class="help-circle">
+                <img class="joker-2" src="{% static 'olimpiad/img/joker-icon-2.png' %}" alt="">
+              </div>
+              <span>Sualı dəyiş</span>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="help-3 joker-item {% if statistic.two_question_joker %}joker-color{% endif %}">
+              <div class="help-circle">
+                <img class="joker-3" src="{% static 'olimpiad/img/joker-icon-3.png' %}" alt="">
+              </div>
+              <span>Cüt şans</span>
+            </div>
+          </div>
+        </div>
+        <!--//help section-->
+         <!-- tab section -->
+           <!--// tab section -->
+
+            <!--question section-->
+            <div class="col-xs-12 col-sm-12 col-md-12 clearfix">
+              <div class="question">
+                  {% if statistic.get_last_answer.question.image %}
+                <div class="question-image">
+                  <img class="img-responsive" src="/media/{{ statistic.get_last_answer.question.image }}" alt="">
+                </div>
+                  {% endif %}
+                <div class="question-text">
+                  <span>
+                    {{ statistic.get_last_answer.question.question }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!--//question section-->
+
+            <!--answers section-->
+            <div class="col-md-12 answers clearfix">
+
+
+              <div class="col-md-6">
+                {% for answer in statistic.get_last_answer.question.get_answer %}
+                <div class="col-md-12 answer" >
+                    <div class="variant">{{ abc|count:forloop.counter0 }})</div>
+                    <div class="answer-item">{{ answer.answer }}</div>
+                </div>
+                {% if forloop.counter|divisibleby:2 %}
+                  </div>
+                  <div class="col-md-6">
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            <!--//answers section-->
+          </div>
+      <!--===============//middle column===============-->
+{% endblock %}
+
+{% block exit-game %}
+    <div class="col-md-12 exit">
+          <div class="col-md-9 col-md-offset-3 exit-btn">
+            <span>Oyundan çıxış</span>
+          </div>
+        </div>
+{% endblock %}
+{% block footer-script %}
+    {% if request.user.is_anonymous and redirect %}
+    <script>
+        $(document).ready(function () {
+            window.onbeforeunload = null;
+           window.location.href = '/';
+        });
+    </script>
+    {% endif %}
+{% endblock %}

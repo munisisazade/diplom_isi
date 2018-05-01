@@ -1,0 +1,774 @@
+// Main view... (UI)
+$main1: #023351;
+$main2: #61b535;
+$main1-hover: #012134;
+$main2-hover:#407c21;
+body {
+	//  overflow: hidden;
+	height: 100vh;
+	font-family: 'FuturaPT-Medium';
+	font-size: 18px;
+	color: $white;
+	background: $white;
+	transition: all .5s ease;
+}
+
+.layout {
+	padding: 21px 10px;
+	height: -webkit-fill-available;
+}
+
+.left-side {
+	@include breakpoint(visible-till-md) {
+		display: flex;
+		flex-flow: wrap-reverse;
+		margin-bottom: 20px;
+	}
+}
+
+.navbar-hamburger {
+	display: none;
+	background: transparent;
+	width: 40px;
+	position: absolute;
+	top: 0;
+	right: 24px;
+	margin-top: 20px;
+	border: 0;
+	outline: 0;
+	z-index: 2;
+	@include breakpoint(visible-till-md) {
+		display: block;
+	}
+	.icon-bar {
+		display: block;
+		width: 37px;
+		height: 4px;
+		border-radius: 1px;
+		background-color: #023351;
+		margin: 0 auto;
+		transition: opacity, transform;
+		transition-duration: 200ms;
+		transition-timing-function: cubic-bezier(0.7, 0, 0, 0.7);
+	}
+	.icon-bar + .icon-bar {
+		margin-top: 6px;
+	}
+}
+
+.main {
+	width: 100%;
+	height: auto;
+	background: url('../img/background-menu.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	@include breakpoint(visible-till-md) {
+		background: url('../img/background-menu.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	} // ============== user section==============
+	.user-section {
+		//    width: auto;
+		padding: 20px;
+		background: $main1;
+		@include breakpoint(visible-till-md) {
+			margin-right: 10px;
+			margin-top: 12px;
+			padding: 10px;
+		}
+		.user {
+			display: flex;
+			justify-content: center;
+			.user-icon {
+				width: 60px;
+				height: 60px;
+				border-radius: 100%;
+				background: white;
+				img {
+					-webkit-border-radius: 100%;
+					-moz-border-radius: 100%;
+					border-radius: 100%;
+				}
+				@include breakpoint(visible-till-md) {
+					width: 40px;
+					height: 40px;
+				}
+			}
+			.user-name {
+				margin-left: 15px;
+				font-weight: bold;
+				padding-top: 5px;
+				span {}
+				@include breakpoint(visible-till-md) {
+					font-size: 14px;
+					margin-left: 10px;
+					padding-top: 2px;
+				}
+			}
+		}
+
+
+
+		.share-section {
+			margin-top: 20px;
+			text-align: center;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.img-fb-icon {
+					width: 20px;
+					margin-left: 10px;
+					padding-bottom: 5px;
+					@include breakpoint(visible-till-md) {
+						width: 22px;
+						margin-left: 5px;
+					}
+				}
+			@include breakpoint(visible-till-md) {
+				margin-top: 10px;
+			}
+			a {
+				margin-right: 10px;
+				@include breakpoint(visible-till-md) {
+					margin-right: 5px;
+				}
+				i {
+					font-size: 20px;
+				}
+			}
+			.share {
+				span {
+					font-size: 14px;
+					@include breakpoint(visible-till-md) {
+						font-size: 10px;
+					}
+				}
+
+			}
+		}
+	} // =========== Game start popup ==============
+	.overlay {
+		background-color: rgba(0, 0, 0, .8);
+		width: 100%;
+		height: 100%;
+		z-index: 99;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		.result_container {
+			width: 401px;
+			height: 401px;
+			position: relative;
+			@media screen and (max-width: 768px) {
+				width: 350px;
+				height: 350px;
+			}
+			@media screen and (max-width: 480px) {
+				width: 250px;
+				height: 250px;
+			}
+			.title {
+				p {
+					font-size: 14px;
+					margin: 0;
+				}
+			}
+			.main-result {
+				position: absolute;
+				top: 50%;
+				left: 60%;
+				div {
+					color: $main1;
+					font-size: 18px;
+					font-weight: bold;
+					@media screen and (max-width: 768px) {
+						font-size: 16px;
+					}
+					@media screen and (max-width: 480px) {
+						font-size: 14px;
+					}
+				}
+			}
+			.continue_button {
+				a {
+					font-weight: bold;
+					font-size: 14px;
+					margin: 0;
+				}
+			}
+		}
+	}
+	.count-2 {
+		position: absolute;
+		top: 58% !important;
+		left: 62% !important;
+	}
+	.count-3 {
+		position: absolute;
+		top: 58% !important;
+		left: 62% !important;
+	}
+	.overflow-hidden {
+		overflow: hidden;
+	}
+	.font-big-size {
+		font-size: 65px;
+		margin: 0 20px;
+	} // =========== time ==============
+	.time {
+		border-radius: 5px;
+		margin-top: 12px;
+		text-align: center;
+		background: $main2;
+		color: white;
+		font-size: 50px; //    width: auto;
+		font-weight: 700;
+		padding: 16px 30px;
+		@include breakpoint(visible-till-md) {
+			margin-left: 10px;
+			font-size: 30px;
+			padding: 27px 30px;
+		}
+	} // ================ stars================
+	.stars {
+		margin-top: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 5px 0;
+		background: $main1;
+		@include breakpoint(visible-till-md) {
+			margin-right: 10px;
+			margin-top: 0;
+		}
+		.star-item {
+			margin-left: 5px;
+			@include breakpoint(visible-till-md) {
+				margin-left: 2px;
+			}
+		}
+		.star-small {
+			font-size: 15px;
+			@include breakpoint(visible-till-md) {
+				font-size: 8px;
+			}
+		}
+		.star-big {
+			@include breakpoint(visible-from-md) {
+				margin-left: 10px;
+			}
+		}
+		.star-8 {
+			font-size: 20px;
+			@include breakpoint(visible-till-md) {
+				font-size: 15px;
+			}
+		}
+		.star-9 {
+			font-size: 25px;
+			@include breakpoint(visible-till-md) {
+				font-size: 20px;
+			}
+		}
+		.star-10 {
+			font-size: 35px;
+			@include breakpoint(visible-till-md) {
+				font-size: 25px;
+			}
+		}
+	}
+	/*==========help section==========*/
+	.help {
+		@include breakpoint(visible-till-md) {
+			padding: 0;
+		}
+		> div {
+			@include breakpoint(visible-till-md) {
+				padding: 0;
+			}
+		}
+		.help-1,
+		.help-2,
+		.help-3 {
+			cursor: pointer;
+			border-radius: 23px;
+			height: 42px;
+			font-size: 20px;
+			line-height: 42px;
+			background: $main2;
+			&:hover {
+				background: $main2-hover;
+			}
+			.help-circle {
+				width: 40px;
+				height: 40px;
+				float: left;
+				border: 3px solid white;
+				border-radius: 50%;
+				background: $main2;
+				top: 1px;
+				left: 1px;
+				position: relative;
+				margin-right: 10px;
+				@include breakpoint(visible-till-md) {
+					margin-right: 6px;
+					width: 24px;
+					height: 24px;
+					border: 2px solid white;
+				}
+				.joker-1 {
+					width: 13px;
+					position: absolute;
+					top: 3px;
+					left: 3px;
+					@include breakpoint(visible-till-md) {
+						width: 7px;
+						top: 3px;
+						left: 3px;
+					}
+				}
+				.joker-2 {
+					width: 25px;
+					position: absolute;
+					top: 3px;
+					left: 5px;
+					@include breakpoint(visible-till-md) {
+						width: 15px;
+						top: 2px;
+						left: 3px;
+					}
+				}
+				.joker-3 {
+					width: 24px;
+					top: 7px;
+					position: absolute;
+					left: 4px;
+					@include breakpoint(visible-till-md) {
+						width: 14px;
+						top: 4px;
+						left: 3px;
+					}
+				}
+			}
+			@include breakpoint(visible-till-md) {
+				font-size: 11px;
+				height: 26px;
+				line-height: 26px;
+			}
+			@include breakpoint(visible-md) {
+				font-size: 16px;
+			}
+		}
+		.help-1 {
+			//      text-align: center;
+			@include breakpoint(visible-till-md) {
+				margin-right: 5px;
+			}
+		}
+		.help-2 {
+			@include breakpoint(visible-till-md) {
+				margin-right: 5px;
+			}
+		}
+		.help-2,
+		.help-3 {
+			@include breakpoint(visible-till-md) {
+				margin-left: 5px;
+			}
+		}
+	}
+	/*===========question section===========*/
+	.question {
+		text-align: center;
+		padding: 50px 25px;
+		margin: 30px 10px;
+		background: rgba(97, 181, 53, .8);
+		background-blend-mode: multiply;
+		@include breakpoint(visible-till-md) {
+			padding: 10px 5px;
+			margin: 15px -10px 10px -10px;
+		}
+		.question-image {
+			margin: 0 auto;
+			width: 300px;
+			border: 2px solid white;
+			@include breakpoint(visible-till-md) {
+				width: 100px;
+			}
+			img {
+				width: 100%;
+			}
+		}
+		.question-text {
+			margin-top: 20px;
+			font-size: 22px;
+			font-weight: bold;
+			@include breakpoint(visible-till-md) {
+				margin-top: 5px;
+				font-size: 14px;
+			}
+		}
+	}
+	/*============answers section============*/
+	.answers {
+		@include breakpoint(visible-till-md) {
+			padding: 0;
+		}
+		> div {
+			@include breakpoint(visible-till-md) {
+				padding: 0;
+			}
+		}
+		.answer {
+			cursor: pointer;
+			background: $main2;
+			&:hover {
+				background: $main2-hover;
+			}
+			margin-bottom: 20px;
+			padding: 8px; //      text-align: center;
+			font-weight: bold;
+			@include breakpoint(visible-till-md) {
+				margin-bottom: 10px;
+				padding: 5px;
+				font-size: 14px;
+			}
+			.variant {
+				float: left;
+			}
+			.answer-item {
+				text-align: center;
+			}
+		}
+	}
+	/*======right date section================*/
+	.right-section {
+		/*date-point section*/
+		.date-point {
+			.date {
+				cursor: pointer;
+				&:hover {
+					background: $main1-hover;
+				}
+			}
+			margin: 0;
+			.week {
+				margin-left: 5px;
+			}
+			.result {
+				margin-right: 10px;
+			}
+		}
+		/*rating table*/
+		.month-table,
+		.result-table {
+			display: none;
+		}
+		.ratings {
+			.leader {
+				background: $main1;
+				margin-top: 22px;
+				padding: 3px 10px;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: all 1s ease;
+				&:hover .point-hov {
+					display: block
+				}
+				.point-hov {
+					position: absolute;
+					background: white;
+					color: #575757;
+					padding: 0 20px;
+					left: -132px;
+					transition: all .5s ease;
+					display: none;
+					font-weight: bold;
+				}
+				.rating-image {
+					width: 35px;
+					height: 35px;
+					background: $main1;
+					position: absolute;
+					border-radius: 50%;
+					right: 13px;
+					top: -15px;
+					border: 2px solid white;
+					img {
+						border-radius: 100%;
+					}
+				}
+			}
+		}
+		/*exit button*/
+		.exit {
+			margin-top: 20px;
+			.exit-btn {
+				cursor: pointer;
+				background-color: $main2;
+				padding: 3px 10px;
+				text-align: center;
+				&:hover {
+					background-color: $main2-hover;
+				}
+			}
+		}
+		@include breakpoint(visible-till-md) {
+			display: none;
+		}
+	}
+}
+
+//  =================history=================
+.history { 
+	margin-top: 12px;
+	padding: 7px;
+	font-size: 22px;
+	text-align: center;
+	cursor: pointer;
+	background: $main1;
+	&:hover {
+		background: $main1-hover;
+	}
+	@include breakpoint(visible-till-md) {
+		display: none;
+	}
+}
+
+//  ===================date===================
+.date-point {
+	margin-top: 12px;
+	padding: 0;
+	> div {
+		display: inline-block;
+		text-align: center;
+		font-size: 14px;
+		padding: 0;
+		&:first-child > div {
+			margin-right: 5px;
+		}
+		&:nth-child(2) > div {
+			margin: 0 5px;
+		}
+		&:last-child > div {
+			margin-left: 5px;
+		}
+		> div {
+			padding: 7px 0;
+			background: $main1;
+		}
+		.date {}
+		.point {
+			padding: 30px 0;
+			margin-top: 5px !important;
+			h4,
+			h6 {
+				margin: 0;
+			}
+			h4 {
+				font-size: 30px;
+			}
+			h6 {
+				font-size: 18px;
+			}
+		}
+	}
+	@include breakpoint(visible-till-md) {
+		display: none;
+	}
+}
+
+//  ==============audio section==============
+.audio {
+	margin-top: 12px;
+	padding: 0;
+	.mute {
+		height: 46px;
+		background: #C4C4C4;
+		border-radius: 23px;
+		padding: 5px;
+		float: left;
+	}
+	.play {
+		float: left;
+		height: 46px;
+		background: #C4C4C4;
+		border-radius: 23px;
+		padding: 7px 20px 7px 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.audio-player-button {
+			display: block;
+			position: relative;
+			float: left;
+			width: 30px;
+			height: 30px;
+			margin: 0 5px;
+			border-radius: 100%;
+			border: 3px solid $main1;
+			cursor: pointer;
+			text-align: center;
+			line-height: 22px;
+			i {
+				color: $main1;
+				font-size: 14px;
+				background: #C4C4C4;
+			}
+			.fa-play {
+				margin-left: 3px;
+			}
+			.fa-pause {
+				margin-left: 1px;
+			}
+		}
+		.pause-button {
+			display: none;
+		}
+		.volume {
+			cursor: pointer;
+			display: block;
+			width: 100px;
+			height: 5px;
+			border-radius: 25px;
+			border: 1px solid $main2;
+			background-color: transparent;
+			position: relative;
+			.volume-progress-bar {
+				cursor: pointer;
+				max-width: 100%;
+				background: $main2;
+				border-radius: 25px;
+				transition: width 200ms linear;
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+	.drop {
+		width: 1px;
+		height: 37px;
+		background: $main1;
+		position: relative;
+		float: left;
+		transform: rotate(25deg);
+		margin: 0 10px;
+	}
+	@include breakpoint(visible-till-md) {
+		display: none;
+	}
+	.mute {
+		cursor: pointer;
+		padding: 2px 16px;
+		margin-left: 5px;
+		i {
+			font-size: 40px;
+			background: transparent;
+			color: $main1;
+		}
+		.mute-drop {
+			display: none;
+			width: 4px;
+			border-radius: 1px;
+			height: 45px;
+			position: absolute;
+			top: 0px;
+			left: 39px;
+			transform: rotate(-48deg);
+			background: $main1;
+		}
+	}
+}
+
+
+/*==================common class==================*/
+
+.clearfix {
+	clear: both;
+}
+
+.font-size-15 {
+	font-size: 15px;
+}
+
+.padd-0 {
+	padding: 0;
+}
+
+.star-yellow {
+	color: $main2;
+}
+
+.joker-item.joker-color {
+	background: $main1 !important;
+	.help-circle {
+		border-color: $main1 !important;
+		background: $main1 !important;
+	}
+}
+
+.right-answer {
+	background: $main1 !important;
+}
+
+.false-answer {
+	background: #d82226 !important;
+	/* Old Browsers */
+}
+
+
+a.tooltips {
+	position: relative;
+	display: inline;
+}
+
+a.tooltips span {
+	position: absolute;
+	width: 300px;
+	color: #FFFFFF;
+	background: #61B535;
+	height: auto;
+	text-align: left;
+	padding: 15px;
+	font-size: 14px;
+	visibility: hidden;
+	border-radius: 7px;
+	box-shadow: 3px 2px 9px #000000;
+	@include breakpoint(visible-till-md) {
+		width: 250px;
+		font-size: 12px;
+	}
+	div{
+		text-align: center;
+		font-size: 16px;
+		font-weight: bold;
+	}
+}
+
+a.tooltips span:after {
+	content: '';
+	position: absolute;
+	top: 9%;
+	right: 100%;
+	margin-top: -8px;
+	width: 0;
+	height: 0;
+	border-right: 8px solid #61B535;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+}
+
+a:hover.tooltips span {
+	visibility: visible;
+	//  opacity: 0.8;
+	left: 100%;
+	top: 50%;
+	margin-top: -19px;
+	margin-left: 15px;
+	z-index: 999;
+}

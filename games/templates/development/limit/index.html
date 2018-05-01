@@ -1,0 +1,14 @@
+{% extends 'development/base/index.html' %}
+{% load i18n %}
+
+{% block content %}
+     <div class="jumbotron">
+        <h1 class="display-3">{% trans 'Üzr istəyirik' %} </h1>
+            <p class="lead">{% trans 'Siz limiti keçmisiniz' %}</p>
+            <p class="lead">{% trans 'Gün ərzində yalnız 2 dəfə oynamaq olar' %}</p>
+            <p class="lead">{% trans 'Əgər yeniden oynamaq istiyirsinizsə dostlarınızı dəvət edin' %}</p>
+            <a class="btn btn-lg btn-success" style="background:#3b5998;border-color: #3b5998" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" role="button"><i class="fa fa-facebook" style="margin-right: 12px;"></i>Dostlarını dəvət et</a></p>
+
+      </div>
+
+{% endblock %}

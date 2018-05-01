@@ -1,0 +1,103 @@
+{% extends 'development/base/index.html' %}
+{% load i18n %}
+{% load base_filter %}
+{% load static %}
+
+{% block content %}
+       <ul class="nav nav-tabs" role="tablist" hidden>
+            {% for x in questions %}
+                <li class="nav-item">
+                    <a class="nav-link next-{{ forloop.counter }} {% if forloop.first %}active{% endif %}" data-toggle="tab" href="#question-{{ forloop.counter }}" role="tab">Sual {{ forloop.counter }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="row">
+            <p>{% trans 'Imtahan vaxti' %}: <span id="time">00:00</span></p>
+            <ul class="nav-item mg32">
+                <li class="change_question">{% trans 'Sualı dəyiş' %}</li>
+                <li class="half-question">{% trans '50/50 yə' %}</li>
+                <li class="two-answer">{% trans 'Çift cavab' %}</li>
+            </ul>
+        </div>
+        <!-- Tab panes -->
+
+        <div class="tab-content">
+            {% for question in questions %}
+                 <div class="tab-pane {% if forloop.first %}active{% endif %}" data-id="{{ question.id }}" data-count="{{ forloop.counter }}" id="question-{{ forloop.counter }}" role="tabpanel">
+                     <p>{{ forloop.counter }}) {{ question.question }}</p>
+                     {% if question.image %}
+                         <img src="/media/{{ question.image }}" alt="{{ question.question }}">
+                     {% endif %}
+
+                     <ul class="answer-list col">
+                         {% for answer in question.get_answer %}
+                            <li class="answer-list-item"  data-question-id="{{ question.id }}" data-answer-id="{{ answer.id }}">{{ abc|count:forloop.counter0 }}) {{ answer.answer }}{% if answer.image %}<img src="/media/{{ answer.image }}" alt="{{ answer.answer }}">{% endif %}</li>
+                         {% endfor %}
+                     </ul>
+                 <p class="helper-text"></p>
+                 </div>
+            {% endfor %}
+
+        </div>
+
+        {% comment %}<p><a class="btn btn-lg btn-success next-element" href="#">{% trans 'Növbəti' %}</a></p>{% endcomment %}
+{% endblock %}
+{% block footer-script %}
+    {{ block.super }}
+    <script>
+        window.addEventListener("beforeunload", function (e) {
+            var confirmationMessage = "tab close";
+            (e || window.event).returnValue = confirmationMessage;     //Gecko + IE
+            sendkeylog(confirmationMessage);
+            console.log();
+            if (window.can_pass) {
+
+            }
+            else {
+                if (confirm('Səhifəni tərk elədiyiz zaman oyunu uduzacaqsız buna əminsiniz?')) {
+
+                     return window.location = window.done_url;
+                }
+
+            }
+        });
+        var minutes = 0;
+        var seconds = 0;
+        function digit(num) {
+            if (String(num).length === 1) {
+                return  "0" + String(num)
+            }
+            else {
+                return String(num)
+            }
+        }
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+          // Get todays date and time
+          var now = new Date().getTime();
+
+          // Find the distance between now an the count down date
+
+
+          seconds += 1;
+          if (seconds === 60) {
+              seconds -= 60;
+              minutes += 1;
+          }
+
+          // Display the result in the element with id="demo"
+          document.getElementById("time").innerHTML = digit(minutes) + ":" + digit(seconds);
+
+
+        }, 1000);
+
+        window.current_url = "{{ request.path }}";
+        window.change_question = "{% url 'base:change-question' %}";
+        window.half_question = "{% url 'base:half-question' %}";
+        window.two_answer_url = "{% url 'base:two-answer' %}";
+        window.done_url = "{% url 'base:result' %}";
+        window.count_times = [];
+        </script>
+    <script src="{% static 'js/customize.js' %}"></script>
+{% endblock %}

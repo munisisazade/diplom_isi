@@ -1,0 +1,15 @@
+%svg-common {
+	background: url("../img/sprite-40463a79.svg") no-repeat;
+    display: inline-block;
+}
+
+.svg--img {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.svg--img--size {
+	width: 64px;
+	height: 64px;
+}
+

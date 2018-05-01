@@ -1,0 +1,65 @@
+.mobile-slide{
+	display: none;
+}
+@include breakpoint(visible-till-md) {
+	.mobile-slide {
+		display: block;
+		padding-bottom: 12px;
+		width: 100%;
+		height: auto;
+		background: rgba(121, 127, 132, .9);
+		position: fixed;
+		top: 0;
+		z-index: 999;
+		right: -100%;
+		text-align: center;
+		.slide-header {
+			height: 64px;
+			width: 100%;
+			background: #023351;
+			.navbar-hamburger {
+				.icon-bar {
+					background: white;
+					&:first-child {
+						transform: translateY(10px) rotate(45deg);
+					}
+					&:nth-child(2) {
+						opacity: 0;
+						transform: translateX(-100%);
+					}
+					&:last-child {
+						transform: translateY(-10px) rotate(-45deg);
+					}
+				}
+			}
+		}
+		.date-point {
+			display: block;
+			text-align: center;
+			>div {
+				width: 80px;
+				.point {
+					h6 {
+						font-size: 16px;
+					}
+					h4 {
+						font-size: 24px;
+					}
+				}
+			}
+		}
+		.history {
+			display: block;
+			width: 250px;
+			margin: 12px auto;
+		}
+		.audio {
+			display: block;
+			width: 262px;
+			margin: 0 auto;
+			.mute{
+				position: relative;
+			}
+		}
+	}
+}

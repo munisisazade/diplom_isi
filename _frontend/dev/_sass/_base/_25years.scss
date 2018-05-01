@@ -1,0 +1,23 @@
+.years-page {
+	background: url('../img/background-menu.jpg');
+	.years-text {
+		color: #22303b;
+		margin: 120px 0;
+		h1 {
+			font-size: 24px;
+			font-weight: bold;
+		}
+		p {
+			font-size: 16px;
+			font-weight: bold;
+			padding-bottom: 25px;
+		}
+	}
+	.play_btn_container {
+		text-align: center;
+		position: relative;
+	}
+	.social-section {
+		margin-top: 0;
+	}
+}

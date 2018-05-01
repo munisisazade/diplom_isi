@@ -1,0 +1,108 @@
+{% extends "production/test/index.html" %}
+{% load static %}
+{% load base_filter %}
+{% block no-music %}music-start{% endblock %}
+{% block auto-play %}{% endblock %}
+{% block main-class %}dashboard{% endblock %}
+{% block safe-exit %}{% endblock %}
+{% block overlay %}
+
+{% endblock %}
+{% block time-star %}
+       <!--game number-->
+        <div class="col-md-12 dashboard-game">
+        {% if not request.user.aditional_chance %}
+            {% if request.user.count == 0 %}
+                <span>3 oyun haqqı qaldı</span>
+            {% elif request.user.count == 1 %}
+               <span>2 oyun haqqı qaldı</span>
+            {% elif request.user.count == 2 %}
+               <span>1 oyun haqqı qaldı</span>
+            {% else %}
+                <span>Oyun haqqınız qalmadı</span>
+            {% endif %}
+        {% else %}
+            {% if request.user.count == 0 %}
+                <span>{{ request.user.aditional_games_count|add:"3" }} oyun haqqı qaldı</span>
+            {% elif request.user.count == 1 %}
+               <span>{{ request.user.aditional_games_count|add:"2" }} oyun haqqı qaldı</span>
+            {% elif request.user.count == 2 %}
+               <span>{{ request.user.aditional_games_count|add:"1" }} oyun haqqı qaldı</span>
+            {% else %}
+                <span>{{ request.user.aditional_games_count }} oyun haqqı qaldı</span>
+            {% endif %}
+        {% endif %}
+
+        </div>
+        <!--//game number-->
+        {% endblock %}
+
+
+{% block middle-section %}
+    <!--===============middle column===============-->
+       <div class="col-xs-12 col-sm-12 col-md-6">
+
+        <!--dashboard section-->
+        <div class="col-xs-12 col-sm-12 col-md-12 clearfix">
+          <div class="col-md-12">
+            <div class="dashboard-title">
+              <span>Bu oyunu oynayan Facebook dostlarım</span>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="dashboard-body">
+                   {% if data %}
+                    {% for x in data %}
+                   <div class="col-md-6">
+                      <span class="point-hov">{{ x.user.point }} - {{ x.user.full_duration|slice:"7:" }}</span>
+                      <div class="dash-user-photo">
+                        <img class="img-responsive" src="http://graph.facebook.com/{{ x.uid }}/picture?width=150&height=150" alt="">
+                      </div>
+                      <span>{{ x.user.get_full_name }}</span>
+                    </div>
+                    {% endfor %}
+                    {% if data.has_next %}
+                    <div class="col-md-12 paginator">
+                     <div class="load-more" onclick="load_more_friends(this)" data-page-count="{{ data.next_page_number }}">Daha çox</div>
+                    </div>
+                    {% endif %}
+                    {% else %}
+
+
+                    <div class="col-md-12 {% if not data %}share-on-facebook{% endif %}">
+                   <div class="text-center text-facebook">
+                       Hələ dostların arasında oynayan yoxdur. Paylaş dostlarının da xəbəri olsun
+                   </div>
+                    <div class="group facebook-share">
+                            <a class="fb" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://{{ request.get_host }}&amp;rel=facebook&amp;index=on&src=sdkpreparse">
+                                <i class="fa fa-facebook"></i> Share on Facebook
+                            </a>
+                        </div>
+
+                </div>
+                {% endif %}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="dashboard-btn" onclick="location.href='{% url 'base:test-online' %}'">
+              <span>Oyuna başla</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="dashboard-btn" onclick="location.href='{% url 'base:index' %}'">
+              <span>Ana səhifə</span>
+            </div>
+          </div>
+        </div>
+        <!--//Dashboard section-->
+      </div>
+      <!--===============//middle column===============-->
+{% endblock %}
+
+{% block exit-game %}
+    <div class="col-md-12 exit">
+          <div class="col-md-9 col-md-offset-3 exit-btn">
+            <span>Oyundan çıxış</span>
+          </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'development/base/index.html' %}
+{% load i18n %}
+
+{% block content %}
+     <div class="jumbotron">
+        <h1 class="display-3"></h1>
+            <p class="lead"><img src="{{ request.user.profile_picture }}" alt="{{ request.user.get_full_name }}"> </p>
+            <p class="lead">{{ request.user.get_full_name }}</p>
+            <p class="lead">{% trans 'Sizin test nəticələriniz' %}</p>
+            <p class="lead">{% trans 'Oyun sayı: ' %} <b>{{ games|length }}</b> </p>
+            <a class="btn btn-lg btn-success" style="background:#3b5998;border-color: #3b5998" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" role="button"><i class="fa fa-facebook" style="margin-right: 12px;"></i>Facebookda paylaş</a></p>
+
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12 text-center">
+          <h4>{{ request.user.get_full_name }}, {% trans 'sizin test nəticələriniz siyahı' %}</h4>
+          <table class="table">
+              <thead class="thead-inverse table-result">
+                <tr class="text-center">
+                  <th>{% trans 'Ad soyad' %}</th>
+                  <th>{% trans 'Düzgün cavablar' %}</th>
+                  <th>{% trans 'Vaxt' %}</th>
+                  <th>{% trans 'Facebook' %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for game in games %}
+                <tr>
+                  <td><a href="{{ game.player.profile_picture }}">
+                        <img class="profile-avatar" src="{{ game.player.profile_picture }}" alt="{{ game.player.get_full_name }}">
+                        </a>{{ game.player.get_full_name }}</td>
+                  <td>{{ game.get_right_answer_count }}</td>
+                  <td>{{ game.duration }}</td>
+                  <td><a class="btn btn-lg btn-success" style="background:#3b5998;border-color: #3b5998" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" role="button"><i class="fa fa-facebook" style="margin-right: 12px;"></i>{% trans 'Nəticəni paylaş' %}</a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+
+
+      </div>
+{% endblock %}

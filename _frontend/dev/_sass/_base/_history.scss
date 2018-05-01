@@ -1,0 +1,144 @@
+.history-main {
+  .left-side,
+  .right-section {
+    @include breakpoint(visible-from-md) {
+      height: -webkit-fill-available;
+    }
+  }
+  .audio,
+  .exit {
+    position: relative;
+    bottom: 0;
+  }
+  .history-btns {
+    display: flex;
+    justify-content: space-between;
+    .dashboard-btn {
+      cursor: pointer;
+      margin-left: 50px;
+      width: 300px;
+      background: #023351;
+      padding: 7px;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      &:hover {
+        background: $main1-hover;
+      }
+      @include breakpoint(visible-till-md) {
+        margin-top: 10px;
+      }
+    }
+  }
+	.user-section{
+		@include breakpoint(visible-till-md){
+			margin-top: 0;
+		}
+	}
+	
+	.hist-dates{
+		>div{
+			@include breakpoint(visible-till-md){
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+.history-items {
+  margin-top: 30px;
+  margin-left: 50px;
+  .history-row {
+    margin: 15px 0 0 0;
+  }
+  .history-date {
+    text-align: center;
+    cursor: pointer;
+    border-radius: 23px;
+    height: 35px;
+    font-size: 20px;
+    line-height: 35px;
+    background-color: $main1;
+    @include breakpoint(visible-till-md) {
+        margin-bottom: 10px;
+    }
+  }
+  .hist-body {
+    margin-top: 15px;
+    font-size: 18px;
+    .hist-body-item {
+      >div {
+        background: rgba(97, 181, 53, .8);
+        text-align: center;
+        font-weight: 400;
+      }
+      .day {
+        height: 30px;
+        line-height: 30px;
+      }
+      .point-time {
+        height: 194px;
+        margin-top: 15px;
+        padding: 5px 15px;
+        overflow: hidden;
+        >div {
+          padding: 2px 0;
+          font-size:15px;
+          &:nth-child(2) {
+            border-bottom: 1px solid white;
+            border-top: 1px solid white;
+          }
+          &:nth-child(3) {
+            border-bottom: 1px solid white;
+
+          }
+        }
+      }
+      .week-result {
+        >div {
+          border-bottom: 1px solid white;
+          border-top: 1px solid white;
+          margin-top: 30px;
+        }
+        img {
+          width: 35px;
+          cursor: pointer;
+          margin: 28px 0;
+        }
+      }
+    }
+  }
+}
+
+.days {
+  position: absolute;
+  left: 10px;
+  top: 95px;
+  .days-btn {
+    font-size: 14px;
+    width: 38px;
+    height: 38px;
+    background-color: #484848;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 38px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+}
+
+
+/*common classes*/
+
+.hist-active {
+  background: $main2 !important;
+}
+
+.days-active {
+  background: $main2 !important;
+}
+
+.hist-color {
+  background: #484848;
+}

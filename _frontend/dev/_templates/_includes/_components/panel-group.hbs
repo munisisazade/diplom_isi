@@ -1,0 +1,137 @@
+<div class="panel-group control-panel" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <a role="button" class="text-none" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="panel-toggle-icon"></i> TABLE
+            </a>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <ul class="list-unstyled elements-list clearfix nm-b">
+                    <li class="frame upload-btn">
+                        <img src="content/upload-btn.png" alt="" class="" draggable="false"/>
+                        <span class="upload-text text-underline">UPLOAD PNG</span>
+                        <input type="file" multiple />
+                        <!-- /.pic -->
+                    </li>
+                    <!-- /.frame -->
+                    {{#library.tables}}
+                        <li class="frame show-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{title}}">
+                            <img src="{{image}}" alt="" class="app-elm" draggable="true" data-type="native"/>
+                            <!-- /.pic -->
+                        </li>
+                    {{/library.tables}}
+
+                    <!-- /.frame -->
+                </ul>
+                <!-- /.list-unstyled elements-list clearfix -->
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading" role="tab" id="headingTwo">
+            <a class="collapsed text-none" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <i class="panel-toggle-icon"></i> SEATS
+            </a>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                <ul class="list-unstyled elements-list clearfix nm-b">
+                    <li class="frame upload-btn">
+                        <img src="content/upload-btn.png" alt="" class="" draggable="false"/>
+                        <span class="upload-text text-underline">UPLOAD PNG</span>
+                        <input type="file" />
+                        <!-- /.pic -->
+                    </li>
+                    <!-- /.frame -->
+                    {{#library.seats}}
+                        <li class="frame show-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{title}}">
+                            <img src="{{image}}" alt="" class="app-elm" draggable="true" data-type="native"/>
+                            <!-- /.pic -->
+                        </li>
+                    {{/library.seats}}
+                    <!-- /.frame -->
+                </ul>
+                <!-- /.list-unstyled elements-list clearfix -->
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <a class="collapsed text-none" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <i class="panel-toggle-icon"></i> DESIGN ELEMENTS
+            </a>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <ul class="list-unstyled elements-list clearfix nm-b">
+                    <li class="frame upload-btn">
+                        <img src="content/upload-btn.png" alt="" class="" draggable="false"/>
+                        <span class="upload-text text-underline">UPLOAD PNG</span>
+                        <input type="file" />
+                        <!-- /.pic -->
+                    </li>
+                    <!-- /.frame -->
+                    {{#library.elements}}
+                        <li class="frame show-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{title}}">
+                            <img src="{{image}}" alt="" class="app-elm" draggable="true" data-type="native"/>
+                            <!-- /.pic -->
+                        </li>
+                    {{/library.elements}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <a class="collapsed text-none" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <i class="panel-toggle-icon"></i> TEXT
+            </a>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <div class="text-image-controls">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div id="size_control" class="size-control"></div>
+                        </div>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control size-input">
+                        </div>
+                        <div class="col-xs-2">
+                            <button id="colorPicker" class="jscolor {valueElement:null,value:'66ccff'}" style="width:24px; height:20px;"></button>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <ul class="list-unstyled elements-list clearfix nm-b">
+                    <li class="frame upload-btn">
+                        <span class="upload-text text-underline text-only">ADD MORE TEXT</span>
+                        <input type="file" />
+                        <!-- /.pic -->
+                    </li>
+                    <!-- /.frame -->
+                    {{#library.texts}}
+                        <li class="frame show-tooltip" data-toggle="tooltip" data-placement="bottom" title="{{title}}">
+                            <img src="{{image}}" alt="" class="app-elm" draggable="true" data-type="extra"/>
+                            <!-- /.pic -->
+                        </li>
+                    {{/library.texts}}
+                    <!-- /.frame -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <a class="collapsed text-none" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                <i class="panel-toggle-icon"></i> OTHERS
+            </a>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+            </div>
+        </div>
+    </div>
+</div>

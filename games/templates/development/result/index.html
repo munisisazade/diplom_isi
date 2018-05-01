@@ -1,0 +1,43 @@
+{% extends 'development/base/index.html' %}
+{% load i18n %}
+
+{% block content %}
+     <div class="jumbotron">
+        <h1 class="display-3">{% trans 'Təşəkkürlər' %} </h1>
+            <p class="lead">Testi uğurla tamamladız</p>
+            <p class="lead">Tamamladığınız vaxt: <b class="test-time">{{ statistic.duration }}</b></p>
+            <p class="lead">Düzgün cavabların sayı: <b class="test-answer-count">{{ statistic.get_right_answer_count }}</b></p>
+            <a class="btn btn-lg btn-success" style="background:#3b5998;border-color: #3b5998" href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" role="button"><i class="fa fa-facebook" style="margin-right: 12px;"></i>Facebookda paylaş</a></p>
+
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12 text-center">
+          <h4>TEST NƏTİCƏLƏRİ ÜZRƏ REYTİNQ CƏDVƏLİ</h4>
+          <table class="table">
+              <thead class="thead-inverse table-result">
+                <tr class="text-center">
+                  <th>Yer</th>
+                  <th>{% trans 'Ad soyad' %}</th>
+                  <th>{% trans 'Düzgün cavablar' %}</th>
+                  <th>{% trans 'Vaxt' %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for winner in winners %}
+                <tr>
+                  <th scope="row">{{ winner.player.id }}</th>
+                  <td><a href="{{ winner.player.profile_picture }}">
+                        <img class="profile-avatar" src="{{ winner.player.profile_picture }}" alt="{{ winner.player.get_full_name }}">
+                        </a>{{ winner.player.get_full_name }}</td>
+                  <td>{{ winner.get_right_answer_count }}</td>
+                  <td>{{ winner.duration }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+
+
+      </div>
+{% endblock %}

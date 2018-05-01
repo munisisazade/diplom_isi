@@ -1,0 +1,56 @@
+--- 
+title: Rules 
+description: Olympiad Online Test 
+---
+
+<section class="home-main second-main rules-page">
+  <div class="container-fluid">
+    <div class="row">
+		{{> header}}
+    </div>
+	<div class="jumbotron">
+		{{#each rules}}
+		<div class="row rules-body">
+		 {{#each row}}
+		  <div class="col-md-4">
+			<div class="rules-inside">
+			  <h1>{{ title }}</h1>
+			  <p>{{{ text }}}</p>
+			</div>
+		  </div>
+		  {{/each}}
+		</div>
+		{{/each}}
+	</div>
+	  <div class="play_btn_container">
+		<div class="play-btn">
+		  <a href="#">OYUNA BAŞLA</a>
+		</div>
+	  </div>
+        <div class="social-section">
+
+            <ul>
+                <li>
+                    <a href="">
+                        <div class="facebook"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="twitter"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="instagram"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="youtube"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+  </div>
+</section>

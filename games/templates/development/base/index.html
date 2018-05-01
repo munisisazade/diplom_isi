@@ -1,0 +1,109 @@
+{% load i18n %}
+{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Online testing free online test">
+    <meta name="author" content="Munis Isazade">
+    <!-- Favicon all formats here -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'favicon/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>{% block title %} {% trans 'Online Testing Example' %} {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    {% block add-css %}
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/customize.css' %}" rel="stylesheet">
+    {% endblock %}
+    <!-- Font awesome icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+    {% block full-content %}
+    <div class="container">
+      {% block navbar %}
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            {% if not request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'base:index' %}">{% trans 'Ana səhifə' %} <span class="sr-only">(current)</span></a>
+            </li>
+            {% else %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="">
+                        <img class="profile-avatar" src="{{ request.user.profile_picture }}" alt="{{ request.user.get_full_name }}">
+                        {{ request.user.get_full_name }}</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{% url 'base:history' %}">{% trans 'Tarixçə' %}</a>
+                        <a class="dropdown-item" href="{% url 'base:logout' %}">{% trans 'Çıxış' %}</a>
+                    </div>
+                </li>
+
+           {% endif %}
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="/static/flags/lang_{{ LANGUAGE_CODE }}.png" alt="{{ LANGUAGE_CODE }}">
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          {% for lang in LANGUAGES %}
+                          <a class="dropdown-item" href="/{{ lang.0 }}/">{{ lang.1 }}</a>
+                          {% endfor %}
+                      </div>
+                    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'base:about-us' %}">{% trans 'Haqqımızda' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'base:contact' %}">{% trans 'Əlaqə' %}</a>
+            </li>
+          </ul>
+        </nav>
+          <h3 class="text-muted"><a href="/">Online Test</a></h3>
+      </div>
+      {% endblock %}
+      {% block content %}
+      {% endblock %}
+      {% block footer %}
+      <footer class="footer">
+            <p>&copy; Olimpiada {% now 'Y' %}</p>
+      </footer>
+      {% endblock %}
+    </div> <!-- /container -->
+    {% endblock %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    {% block footer-script %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    {% endblock %}
+  </body>
+</html>
+
+

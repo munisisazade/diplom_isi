@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="tags for website">
+    <meta name="description" content="Olympiad Online Test">
+    <meta name="author" content="">
+    
+    <title> Home - Play Game </title>
+    
+    <!-- injector:css -->
+    <link rel="stylesheet" href="../../static/olimpiad/css/design.min.css">
+    <!-- endinjector -->
+    
+    <!-- injector:js -->
+    <script src="../../static/olimpiad/js/min/assets/jquery.min.js"></script>
+    <script src="../../static/olimpiad/js/min/assets/bootstrap.min.js"></script>
+    <script src="../../static/olimpiad/js/min/app.min.js"></script>
+    <script src="../../static/olimpiad/js/jquery.youtubebackground.js"></script>
+    <!-- endinjector -->
+
+</head>
+<body>
+
+
+<div class="mobile-slide">
+	<div class="slide-header">
+	  <!--navbar-hamburger-->
+      <button type="button" id="game-hamburger-close" class="navbar-hamburger">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--//navbar-hamburger-->
+	</div>
+	<div class="date-point">
+	  <div class="col-md-4">
+		<div class="date">HƏFTƏ</div>
+		<div class="point"><h6>XAL</h6><h4>20</h4></div>
+	  </div>
+	  <div class="col-md-4">
+		<div class="date">AY</div>
+		<div class="point"><h6>XAL</h6><h4>200</h4></div>
+	  </div>
+	  <div class="col-md-4">
+		<div class="date">YEKUN</div>
+		<div class="point"><h6>XAL</h6><h4>450</h4></div>
+	  </div>
+	</div>
+	
+	<!--history button-->
+	<div class="history">
+	  <span>Tarixçə</span>
+	</div>
+	<!--//history button-->
+	
+	<!--audio section-->
+	<div class="audio">
+	  <div>
+		<div class="play">
+		  <a role="button" class="audio-player-button play-button">
+			<i class="fa fa-play" aria-hidden="true"></i>
+		  </a>
+		  <a role="button" class="audio-player-button pause-button">
+			<i class="fa fa-pause" aria-hidden="true"></i>
+		  </a>
+		  <div class="drop"></div>
+			<audio id="song" autoplay="true"  src="../../static/olimpiad/mp3/1.mp3"></audio>
+			<div class="volume">
+				<span class="volume-progress-bar"></span>
+		  </div>
+		</div>
+	  </div>
+	  <div>
+		<div>
+		  <div class="mute">
+			<i class="fa fa-volume-up" aria-hidden="true"></i>
+			<div class="mute-drop"></div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!--//audio section-->
+</div>
+
+<section class="main in-game">
+    <div class="overlay must_be_hide">
+	   <div class="result_container col-xs-12">
+		   <div class="title pull-right">
+			   <p>Oyunun başlamağına saniyə qaldı</p>
+		   </div>
+		   <img src="../../static/olimpiad/img/results_1.png" alt="" class="img-responsive">
+			<div class="main-result">
+			   <div><span id="start_count">3</span></div>
+		   </div>
+	   </div>
+   </div>
+
+  <div class="container-fluid">
+    <div class="row layout">
+      <!--navbar-hamburger-->
+      <button type="button" id="game-hamburger-btn" class="navbar-hamburger">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--//navbar-hamburger-->
+      <!--==================first column==================-->
+      <div class="col-xs-12 col-sm-12 col-md-3 left-side">
+        <!-- user section-->
+        <div class="col-xs-6 col-sm-6 col-md-12 padd-0">
+          <div class="user-section">
+            <div class="user">
+              <div class="user-icon">
+                <img src="" alt="">
+              </div>
+              <div class="user-name">
+                <span>Ramin</br>Qurbanov</span>
+              </div>
+            </div>
+
+            <div class="share-section">
+              <a class="tooltips" href="#">
+              	<i class="fa fa-info-circle" aria-hidden="true"></i>
+				  <span><div>Dostlarını dəvət et</div></br>1. Əlavə oyun haqqı qazanmaq üçün 5 dostunu dəvət et.</br></br>2. Dostlarını mobildən tag edərək, desktopdan isə mesaj göndərərək dəvət edə bilərsən.</br></br>3. Əlavə oyun haqqı hər bir istifadəçiyə gün ərzində yalnız 1 dəfə verilir.</span>
+              </a>
+			  <div class="share">
+              	<img src="../../static/olimpiad/img/share.png" alt="">
+			  </div>
+            </div>
+          </div>
+        </div>
+        <!--//user section-->
+        
+        <!--Time section-->
+        <div class="col-xs-6 col-sm-6 col-md-12 padd-0">
+          <div class="time">
+            <span id="time">00:00</span>
+          </div>
+        </div>
+        <!--//Time section-->
+        
+        <!--star section-->
+        <div class="col-xs-6 col-sm-6 col-md-12 padd-0 clearfix">
+          <div class="stars">
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-small star-item star-yellow" aria-hidden="true"></i>
+            <i class="fa fa-star star-big star-8 star-item" aria-hidden="true"></i>
+            <i class="fa fa-star star-big star-9 star-item" aria-hidden="true"></i>
+            <i class="fa fa-star star-big star-10 star-item" aria-hidden="true"></i>
+          </div>
+        </div>
+        <!--//star section-->
+        
+        <!--history button-->
+        <div class="col-md-12 history">
+          <span>Tarixçə</span>
+        </div>
+        <!--//history button-->
+        
+        <!--date-point section-->
+        <div class="col-md-12 date-point">
+          <div class="col-md-4">
+            <div class="date">HƏFTƏ</div>
+            <div class="point"><h6>XAL</h6><h4>20</h4></div>
+          </div>
+          <div class="col-md-4">
+            <div class="date">AY</div>
+            <div class="point"><h6>XAL</h6><h4>200<h4></div>
+          </div>
+          <div class="col-md-4">
+            <div class="date">YEKUN</div>
+            <div class="point"><h6>XAL</h6><h4>450<h4></div>
+          </div>
+        </div>
+        <!--//date-point section-->
+        
+        <!--audio section-->
+        <div class="col-md-12 audio">
+          <div class="col-md-9 padd-0">
+            <div class="play col-md-12">
+              <a role="button" class="audio-player-button play-button">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </a>
+              <a role="button" class="audio-player-button pause-button">
+                <i class="fa fa-pause" aria-hidden="true"></i>
+              </a>
+              <div class="drop"></div>
+                <audio id="song" autoplay="true"  src="../../static/olimpiad/mp3/1.mp3"></audio>
+                <div class="volume">
+                    <span class="volume-progress-bar"></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 padd-0">
+            <div class="col-md-12 padd-0">
+              <div class="mute">
+                <i class="fa fa-volume-up" aria-hidden="true"></i>
+                <div class="mute-drop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--//audio section-->
+      </div>
+      <!--==================//first column==================-->
+      
+      <!--===============middle column===============-->
+      <div class="col-xs-12 col-sm-12 col-md-6">
+      
+       <!--help section-->
+        <div class="col-xs-12 col-sm-12 col-md-12 help clearfix">
+          <div class="col-xs-4 col-sm-4 col-md-4">
+              <div class="help-1 joker-item">
+              <div class="help-circle">
+                <img unselectable="on" class="joker-1" src="../../static/olimpiad/img/joker-icon-1.png" alt="">
+              </div> 
+              <span>50:50</span>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="help-2 joker-item">
+              <div class="help-circle">
+                <img class="joker-2" src="../../static/olimpiad/img/joker-icon-2.png" alt="">
+              </div>
+              <span>Sualı dəyiş</span>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="help-3 joker-item">
+              <div class="help-circle">
+                <img class="joker-3" src="../../static/olimpiad/img/joker-icon-3.png" alt="">
+              </div>
+              <span>Cüt şans</span>
+            </div>
+          </div>
+        </div>
+        <!--//help section-->
+        
+        <!--question section-->
+        <div class="col-xs-12 col-sm-12 col-md-12 clearfix">
+          <div class="question">
+            <div class="question-image">
+              <img src="../../static/olimpiad/img/question-image.png" alt="">
+            </div>
+            <div class="question-text">
+              <span>
+                Hansı idmançımız 2016-cı il Rio Yay Olimpiya oyunlarında yeganə qızıl medalımızı qazanmışdır?
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--//question section-->
+        
+        <!--answers section-->
+        <div class="col-md-12 answers clearfix">
+          <div class="col-md-6">
+            <div class="col-md-12 answer">
+              <div class="variant">A)</div>
+              <div class="answer-item">Munis Isayev</div>
+            </div>
+            <div class="col-md-12 answer">
+              <div class="variant">B)</div>
+              <div class="answer-item">Munis Isayev</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-12 answer">
+              <div class="variant">C)</div>
+              <div class="answer-item">Munis Isayev</div>
+            </div>
+            <div class="col-md-12 answer">
+              <div class="variant">D)</div>
+              <div class="answer-item">Munis Isayev</div>
+            </div>
+          </div>
+        </div>
+        <!--//answers section-->
+      </div>
+      <!--===============//middle column===============-->
+      
+      <!--==================right column==================-->
+      <div class="col-xs-12 col-sm-12  col-md-3 right-section">
+       
+       <!--date-point section-->
+        <div class="col-md-12 date-point">
+          <div class="col-md-3 col-md-offset-3">
+            <div class="date week">Həftə</div>
+          </div>
+          <div class="col-md-3">
+            <div class="date month">Ay</div>
+          </div>
+          <div class="col-md-3">
+            <div class="date result">Yekun</div>
+          </div>
+        </div>
+        <!--//date-point section-->
+        
+        <!--ratings table-->
+        <div class="col-md-12 ratings week-table">
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Əhməd Rəsul</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+        </div>
+        
+        <div class="col-md-12 ratings month-table">
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Ismayil Rehimli</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+        </div>
+        
+        <div class="col-md-12 ratings result-table">
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+          <div class="col-md-9 col-md-offset-3 leader">
+              <span class="point-hov">255 - 36:12</span>
+              <span>Munis Isazade</span>  
+              <div class="rating-image">
+                <img src="" alt="">
+              </div>       
+          </div>
+        </div>
+        <!--//ratings table-->
+        
+        <div class="col-md-12 exit">
+          <div class="col-md-9 col-md-offset-3 exit-btn">
+            <span>Oyundan çıxış</span>
+          </div>
+        </div>
+      </div>
+      <!--//==================right column==================-->
+    </div>
+  </div>
+</section>
+
+<script src="//localhost:35729/livereload.js"></script>
+</body>
+</html>

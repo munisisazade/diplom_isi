@@ -1,0 +1,30 @@
+{% extends 'production/home/index.html' %}
+{% load base_filter %}
+{% load static %}
+{% block social-headers %}
+    <!-- Facebook share header -->
+    {% if statistic %}
+    <meta property="og:title" content="Xal:{{ statistic.answer_count }} Vaxt: {{ statistic.duration|duration_field }}">
+    {% else %}
+    <meta property="og:title" content="Azərbaycan Milli Olimpiya Komitəsi 25 illiyi">
+    {% endif %}
+    <meta property="og:description" content="Sən də mok25.az saytına daxil ol, oyna, Olimpiya biliklərini yoxla, qalib gəl və dəyərli hədiyyələrin sahibi ol!">
+    {% if statistic.answer_count == 10 %}
+     <meta property="og:image" content="http://{{ request.get_host }}{% static 'olimpiad/img/winner.jpg' %}">
+    {% else %}
+    <meta property="og:image" content="http://{{ request.get_host }}/static/olimpiad/img/fb{{ statistic.player.result_num }}.png">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri  }}">
+
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    {% if statistic.answer_count == 10 %}
+     <meta name="twitter:image" content="http://{{ request.get_host }}{% static 'olimpiad/img/winner.jpg' %}">
+    {% else %}
+    <meta name="twitter:image" content="http://{{ request.get_host }}/static/olimpiad/img/fb{{ statistic.player.result_num }}.png">
+    {% endif %}
+    <meta name="twitter:image:alt" content="Mok25">
+    <meta name="twitter:creator" content="@labrin"/>
+    <meta name="twitter:site" content="@nocazerbaijan">
+    {% endblock %}
+

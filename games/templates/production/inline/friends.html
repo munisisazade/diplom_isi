@@ -1,0 +1,17 @@
+{% load base_filter %}
+{% if data %}
+    {% for x in data %}
+    <div class="col-md-6">
+      <span class="point-hov">{{ x.user.point }} - {{ x.user.full_duration|slice:"7:" }}</span>
+      <div class="dash-user-photo">
+        <img class="img-responsive" src="http://graph.facebook.com/{{ x.uid }}/picture?width=150&height=150" alt="">
+      </div>
+      <span>{{ x.user.get_full_name }}</span>
+    </div>
+    {% endfor %}
+    {% if data.has_next %}
+    <div class="col-md-12 paginator">
+     <div class="load-more" onclick="load_more_friends(this)" data-page-count="{{ data.next_page_number }}">Daha çox</div>
+    </div>
+    {% endif %}
+    {% endif %}

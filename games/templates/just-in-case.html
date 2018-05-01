@@ -1,0 +1,53 @@
+
+{% extends 'development/base/index.html' %}
+{% load i18n %}
+{% load static %}
+{% block add-css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cover.css' %}">
+    {% endblock %}
+{% block navbar %}
+
+      {% endblock %}
+{% block full-content %}
+<div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+                <h3 class="masthead-brand"><a href="{% url 'base:index' %}">Online Test</a></h3>
+              <nav class="nav nav-masthead">
+                <a class="nav-link" href="{% url 'base:index' %}">{% trans 'Ana səhifə' %}</a>
+                <a class="nav-link active" href="{% url 'base:about-us' %}">{% trans 'Haqqımızda' %}</a>
+                <a class="nav-link" href="#">{% trans 'Əlaqə' %}</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h3 class="">Azərbaycan idmançıları 2016-cı ildə keçirilən Rio Yay Olimpiya Oyunlarında
+hansı idman növlərində ilk dəfə olaraq medal qazandılar?</h3>
+              <br>
+          <p class="text-lg-left answer-list-item">A) Taekvando və atıcılıq</p>
+          <p class="text-lg-left answer-list-item">B) Üzgüçülük və kanoe</p>
+          <p class="text-lg-left answer-list-item">C) Kanoe və taekvando</p>
+          <p class="text-lg-left answer-list-item">D) Atçılıq və kanoe</p>
+
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>&copy; Olimpiada {% now 'Y' %}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+{% endblock %}
+{% block footer %}
+      {% endblock %}

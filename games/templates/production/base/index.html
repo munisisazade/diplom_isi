@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="tags for website">
+    <meta name="description" content="National Olimpic Committee of Azerbaijan">
+    <meta name="author" content="">
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'olimpiad/img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'olimpiad/img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'olimpiad/img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'olimpiad/img/manifest.json' %}">
+    <link rel="mask-icon" href="{% static 'olimpiad/img/safari-pinned-tab.svg' %}" color="#539736">
+    <meta name="theme-color" content="#539736">
+    {% block social-headers %}
+    <!-- Facebook share header -->
+    <meta property="og:title" content="Azərbaycan Milli Olimpiya Komitəsi 25 illiyi">
+    <meta property="og:description" content="Sən də mok25.az saytına daxil ol, oyna, Olimpiya biliklərini yoxla, qalib gəl və dəyərli hədiyyələrin sahibi ol!">
+    <meta property="og:image" content="http://{{ request.get_host }}{% static '/olimpiad/img/mok25_banner.png' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri  }}">
+
+    <!--Twitter header-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://{{ request.get_host }}{% static '/olimpiad/img/mok25_banner.png' %}">
+    <meta name="twitter:image:alt" content="Mok25">
+    <meta name="twitter:creator" content="@labrin"/>
+    <meta name="twitter:site" content="@nocazerbaijan">
+    {% endblock %}
+
+    <title> {% block title %} National Olimpic Committee of Azerbaijan {% endblock %}</title>
+
+    <!-- injector:css -->
+    <link rel="stylesheet" href="{% static 'olimpiad/css/design.min.css' %}">
+    <!-- endinjector -->
+
+    <!-- injector:js -->
+    <script src="{% static 'olimpiad/js/min/assets/jquery.min.js' %}"></script>
+    <script src="{% static 'olimpiad/js/min/assets/bootstrap.min.js' %}"></script>
+    <script src="{% static 'olimpiad/js/min/app.min.js' %}"></script>
+    <!-- endinjector -->
+
+</head>
+<body>
+
+
+
+    {% block container %}
+
+
+    {% endblock %}
+
+    {% block footer-script %}
+    {% endblock %}
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107297077-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107297077-1');
+</script>
+</body>
+</html>

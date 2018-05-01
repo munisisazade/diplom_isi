@@ -1,0 +1,16 @@
+{% load base_filter %}
+<div class="tab-content">
+    {% for question in questions %}
+         <div class="tab-pane {% if forloop.first %}active{% endif %}" id="question-{{ count_base }}" role="tabpanel">
+             <p>{{ count_base }}) {{ question.question }}</p>
+            {% if question.image %}
+                 <img src="/media/{{ question.image }}" alt="{{ question.question }}">
+             {% endif %}
+             <ul class="answer-list col">
+                 {% for answer in question.get_answer %}
+                    <li class="answer-list-item" onclick="check_answer(this)" data-question-id="{{ question.id }}" data-answer-id="{{ answer.id }}">{{ abc|count:forloop.counter0 }}) {{ answer.answer }}</li>
+                 {% endfor %}
+             </ul>
+         </div>
+    {% endfor %}
+</div>

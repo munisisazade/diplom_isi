@@ -1,0 +1,41 @@
+.second-main {
+	background: url('../img/background-menu.jpg');
+	@include breakpoint(visible-till-md) {
+		height: auto;
+	}
+	&.home-menu {
+		@include breakpoint(visible-till-md) {
+			margin: 20px auto 0 auto;
+		}
+	}
+	.social-section {
+		position: relative;
+		margin-top: 50px;
+	}
+}
+
+.rules-page {
+	height: auto;
+	background-size: cover;
+	.play_btn_container {
+		    margin-top: 50px;
+		position: static;
+		text-align: center;
+	}
+}
+
+.rules-body {
+	margin-top: 40px;
+	color: #22303b;
+	.rules-inside {
+		padding: 0 30px;
+	}
+	h1 {
+		font-size: 24px;
+		font-weight: bold;
+	}
+	p {
+		font-size: 14px;
+		font-weight: bold;
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"rules": 
+	[
+		{
+			"row":[
+				{
+					"title": "Suallar",
+					"text": "Azərbaycan Milli Olimpiya Komitəsinin 25 illiyinə həsr edilmiş bu yarışmada suallar Azərbaycan idmançılarının Yay və Qış Olimpiya Oyunlarındakı çıxışları, İslam Oyunları, Avropa Oyunları, Universiada, Gənclərin Olimpiya Oyunları, müxtəlif idman növləri üzrə Avropa və Dünya Çempionatları, bir sözlə MOK bayrağı altında çıxış edilən bütün tədbirlər və idmançılarımız haqqında olacaqdır."
+				},
+				{
+					"title": "Sual sayı",
+					"text": "a. Hər yarış 10 sualdan ibarətdir. </br></br>b. Yarışmadakı ulduzlar iştirakçının hansı sualda olduğunu göstərir.</br></br>c. 8-ci sual sərhəd rolunu oynayır və 8-ci suala çatan istifadəçi avtomatik olaraq xal cədvəlinə düşməyə haqq qazanır.</br></br>d. 8 düzgün cavabdan aşağı göstəricələr xal cədvəlinə düşə bilməyəcəkdir."
+				},
+				{
+					"title": "Vaxt",
+					"text": "a. Yarışma başladıqdan sonra istifadəçilər suallardan əlavə, zamana qarşı da yarışacaqlardır. </br></br>b. Çox sual tapma göstəricisindən əlavə, ən qısa zamanda tapma göstəricisi də xal cədvəli sıralamasında prioritet təşkil edəcəkdir."
+				}
+			]
+		},
+		{
+			"row":[
+				{
+					"title": "Köməklər",
+					"text": "a. 50:50 </br></br>Bu köməkdən istifadə etdiyiniz zaman 4 variantdan səhv olan 2 variant avtomatik olaraq ekrandan silinir və iştirakçı yerdə qalan digər 2 variant arasında seçim etməli olur. Bu köməkdən 10 sual ərzində yalnız 1 dəfə istifadə etmək olar.<br/></br>b. Sualı dəyiş</br></br>Bu köməkdən istifadə edilərkən ekrandakı sual hər hansı bir başqa sualla əvəzlənir. Bu köməkdən 10 sual ərzində yalnız 1 dəfə istifadə etmək olar.</br></br>c. Cüt şans</br></br>Bu köməkdən istifadə edilərkən, istifadəçi iki variantı eyni anda seçmə haqqı qazanır. Bu köməkdən də 10 sual ərzində yalnız 1 dəfə istifadə etmək olar."
+				},
+				{
+					"title": "Xal cədvəli",
+					"text": "a. Xal cədvəli həftəlik, aylı və yekun olmaqla 3 hissədən ibarətdir.</br></br>b. Hər həftə xal cədvəli sıfırlanır, amma aylıq və yekun nəticələr üçün davam etdirilir.</br></br>c. Xal cədvəlinə əsasən hər həftənin, ayın və yekun qalibini müxtəlif mükafatlar gözləyir."
+				},
+				{
+					"title": "Əlavə oyun haqqı",
+					"text": "a. Hər bir iştirakçının gün ərzində 2 dəfə 10 suallıq yarışma oynama haqqı vardır. <br/></br>b. Əlavə can qazanmaq istəyən iştirakçı 5 dostunu oyuna dəvət etməklə bu haqqa sahib ola bilər</br></br>c. Əlavə can gün ərzində yalnız bir dəfə qazanıla bilər. Bu isə o deməkdir ki, iştirakçı gün ərzində maksimum 3 dəfə yarışa bilər."
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,103 @@
+/*  Helper classes
+----------------------------------------------------*/
+//////////////////////////
+// Dynamic classes
+//////////////////////////
+@each $slug, $position in (t, top),
+        (b, bottom),
+        (l, left),
+        (r, right) {
+  .nb-#{$slug} {
+    border-#{$position}: none !important;
+  }
+
+  // Precise Defined Distances
+  @for $i from 0 through 6 {
+    $num: $i * 5;
+
+    .mg-#{$slug}-#{$num} {
+      margin-#{$position}: #{$num}px !important;
+    }
+    .pd-#{$slug}-#{$num} {
+      padding-#{$position}: #{$num}px !important;
+    }
+  }
+}
+
+////// Text colors...
+@each $txtclass, $clr in ('white', $white), {
+  @include text-emphasis-variant('.text-' + $txtclass, $clr);
+  .text-#{$txtclass} {
+    color: #{$clr} !important;
+  }
+}
+
+//////////////////////////
+// Static classes
+//////////////////////////
+.nm {
+  margin: 0 !important;
+}
+
+.np {
+  padding: 0 !important;
+}
+
+.nb {
+  border: none !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.font-w-normal {
+  font-weight: normal !important;
+}
+
+.bg-trns {
+  background: transparent !important;
+}
+
+.img-responsive-inline {
+  @include img-responsive(inline-block);
+}
+
+.display-inline {
+  display: inline-block !important;
+}
+
+.text-none {
+  text-decoration: none !important;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-ellipsis {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.relative {
+  position: relative !important;
+}
+
+.absolute {
+  position: absolute !important;
+}
+
+.resize {
+  resize: none !important;
+}
+
+.over-hide {
+  overflow: hidden !important;
+}
+
+.cur-pot {
+  cursor: pointer !important;
+}

@@ -1,0 +1,143 @@
+{% extends "production/test/index.html" %}
+{% load static %}
+{% load base_account %}
+{% load base_filter %}
+{% block no-music %}music-start{% endblock %}
+{% block main-class %}history-main{% endblock %}
+{% block safe-exit %}{% endblock %}
+{% block overlay %}
+{% endblock %}
+{% block time-star %}
+
+{% endblock %}
+{% block middle-section %}
+    <!--===============middle column===============-->
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="history-items">
+
+                {% now "d" as current_day %}
+                {% now "F" as current_month %}
+            <header class="hist-dates clearfix">
+                <ul class="nav" role="tablist">
+                {% for month_name in calendars %}
+                    <li class="nav-item">
+                        <div class="col-md-3">
+                             <div class="history-date {% if month_name.name == current_month %} hist-active {% endif %} {% if month_name.name == current_month %}active hist-active{% endif %}"  data-toggle="tab" href="#calendar-{{ forloop.counter }}" >{{ month_name.name }}</div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </header>
+            <!--// tab section -->
+          <div class="tab-content">
+            {% for dates in calendars %}
+                <div class="tab-pane {% if dates.name == current_month %}active{% endif %} fade in" data-id="{{ dates.name }}" data-count="{{ forloop.counter }}" id="calendar-{{ forloop.counter }}" role="tabpanel">
+                  <section class="hist-body music-start {% block auto-play %}{% endblock %} clearfix">
+
+              <div class="days" role="tablist">
+               <ul class="nav" role="tablist">
+                  {% for week in dates.weeks %}
+                      {% if week.title %}
+                        <li class="nav-item">
+                            <div class=" days-btn {% if week.thisweek %}active hist-active{% else %}{% if dates.name != current_month and  forloop.first %}active hist-active{% endif %}{% endif %}" data-toggle="tab" href="#day-{{ dates.name }}{{ forloop.counter }}">
+                              {{ week.title }}
+                            </div>
+                        </li>
+                      {% endif %}
+                  {% endfor %}
+               </ul>
+              </div>
+                    <div class="tab-content">
+                 {% for week in dates.weeks %}
+                        <div class="tab-pane {% if week.thisweek %}active{% else %}{% if dates.name != current_month and  forloop.first %}active{% endif %}{% endif %} fade in" data-id="{{ week.name }}" data-count="{{ forloop.counter }}" id="day-{{ dates.name }}{{ forloop.counter }}" role="tabpanel">
+                      <div class="row history-row">
+                        {% if week.days|length == 7 %}
+                        {% for x in week.days %}
+
+                            <div class="col-md-3" data-day="{{ x.day }}">
+                          <div class="hist-body-item">
+                            <div class="day clearfix {% if x.week == 'Çərşənbə axşamı' %}font-size-15{% endif %}">{{ x.week }}</div>
+
+                            <div class="point-time clearfix">
+                                {% for game in games %}
+                                   {% if game.game_time|date:"j"|val_int == x.day|val_int and game.game_time|date:"F"|val_str == dates.name|val_str %}
+                                        <div>XAL: {{ game.answer_count }}</br>VAXT: {{ game.duration|duration_field }}</div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                            {% if forloop.counter|divisibleby:4 %}
+                                </div>
+                                <div class="row history-row">
+                            {% endif %}
+                            {% endfor %}
+                            <div class="col-md-3">
+                          <div class="hist-body-item">
+                            <div class="day clearfix">Yekun</div>
+                            <div class="point-time clearfix">
+                            </div>
+                          </div>
+                        </div>
+                            {% else %}
+                                 {% for x in week.days %}
+
+                            <div class="col-md-3" data-day="{{ x.day }}">
+                          <div class="hist-body-item">
+                            <div class="day clearfix {% if x.week == 'Çərşənbə axşamı' %}font-size-15{% endif %}">{{ x.week }}</div>
+
+                            <div class="point-time clearfix">
+                                 {% for game in games %}
+                                   {% if game.game_time|date:"j"|val_int == x.day|val_int and game.game_time|date:"F"|val_str == dates.name|val_str %}
+                                        <div>XAL: {{ game.answer_count }}</br>VAXT: {{ game.duration|duration_field }}</div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                          </div>
+                        </div>
+                            {% if forloop.counter|divisibleby:4 %}
+                                </div>
+                                <div class="row history-row">
+                            {% endif %}
+                            {% endfor %}
+                                    <div class="col-md-3">
+                          <div class="hist-body-item">
+                            <div class="day clearfix">Yekun</div>
+                            <div class="point-time clearfix">
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                      </div>
+
+
+                        </div>
+                 {% endfor %}
+                    </div>
+            </section>
+                </div>
+              {% endfor %}
+
+          </div>
+          </div>
+        </div>
+         <div class="history-btns">
+          <div class="dashboard-btn" onclick="location.href='{% url 'base:test-online' %}'">
+              <span>Oyuna başla</span>
+            </div>
+          <div class="dashboard-btn" onclick="location.href='{% url 'base:player-dashboard' %}'">
+              <span>Geri qayıt</span>
+            </div>
+         </div>
+      </div>
+      <!--===============//middle column===============-->
+{% endblock %}
+
+{% block exit-game %}
+    <div class="col-md-12 exit">
+          <div class="col-md-9 col-md-offset-3 exit-btn">
+            <span>Oyundan çıxış</span>
+          </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,148 @@
+.dashboard {
+  padding-bottom: 15px;
+  .dashboard-game {
+    margin-top: 12px;
+    padding: 7px;
+    font-size: 22px;
+    text-align: center;
+    background: #61b535;
+    @include breakpoint(visible-till-md) {
+      display: none;
+    }
+  }
+  .history {
+    margin-top: 108px;
+  }
+  .user-section {
+    @include breakpoint(visible-till-md) {
+      margin-top: 0;
+    }
+  }
+
+  .share-on-facebook {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    .text-facebook {
+      font-size: 22px;
+    }
+    .facebook-share {
+      margin: 0 auto;
+      background-color: #29487d;
+      font-size: 12px;
+      padding: 4px 6px;
+    }
+  }
+
+  .dashboard-title {
+    background: $main1;
+    padding: 7px;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 40px;
+    @include breakpoint(visible-till-md){
+      margin-top: 15px;
+    }
+  }
+
+  .dashboard-body {
+    margin-top: 5px;
+    background: rgba(97, 181, 53, .8);
+    height: 421px;
+    padding: 15px;
+    overflow-y: scroll;
+    @include breakpoint(visible-till-md){
+      height: auto;
+    }
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+    .paginator {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      .load-more {
+        padding: 1px 11px;
+        background: $main1;
+        cursor: pointer;
+      }
+    }
+    > div {
+      display: flex;
+      margin-top: 40px;
+      cursor: pointer;
+      &:hover .point-hov {
+          display: block
+      }
+      .point-hov {
+          position: absolute;
+          background: white;
+          color: #575757;
+          padding: 0 20px;
+          left: 112px;
+          transition: all .5s ease;
+          display: none;
+          font-weight: bold;
+      }
+      &:first-child,
+      &:nth-child(2) {
+        margin-top: 0;
+        @include breakpoint(visible-till-md){
+          margin-top: 20px;
+        }
+      }
+      &:first-child{
+        @include breakpoint(visible-till-md){
+          margin-top: 0;
+        }
+      }
+      @include breakpoint(visible-till-md){
+        margin-top: 20px;
+      }
+      span {
+        vertical-align: middle;
+        line-height: 35px;
+      }
+    }
+  }
+  .dash-user-photo {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    background: #023351;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: inline-block;
+    img {
+      border-radius: 100%;
+    }
+  }
+
+  .dashboard-btn {
+    cursor: pointer;
+    background: $main1;
+    padding: 7px;
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+    &:hover {
+		background: $main1-hover;
+	}
+    @include breakpoint(visible-till-md){
+      margin-top: 10px;
+    }
+  }
+}

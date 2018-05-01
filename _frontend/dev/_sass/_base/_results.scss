@@ -1,0 +1,108 @@
+.result-page {
+  .overlay {
+    background-color: rgba(0, 0, 0, .8);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    // Facebook share button
+    .element{
+        color: #fff;
+        .group{
+        display: inline-block;
+        position: relative;
+        cursor:pointer;
+        margin: 0px;
+          .fb{
+              background-color: #29487d;
+              font-size: 12px;
+              padding: 4px 6px;
+            &:hover{
+              background-color: #244872;
+            }
+            i{
+              font-size: 18px;
+              vertical-align: middle;
+              margin-right: 6px;
+            }
+          }
+        }
+
+        a{
+        padding: 5px 3px;
+        font-size: 14px;
+        border-radius: 2px;
+        cursor: inherit;
+        border:0;
+        color:#ffffff;
+        width: 150px;
+        outline: 0;
+        font-family: inherit;
+        -webkit-transition: background-color 0.2s ease-in-out;
+        -moz-transition: background-color 0.2s ease-in-out;
+        -o-transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out;
+        }
+      }
+    // End facebook share button
+    .result_container {
+      width: 401px;
+      height: 401px;
+      position: relative;
+      @media screen and (max-width: 768px) {
+        width: 350px;
+        height: 350px;
+        }
+      @media screen and (max-width: 480px) {
+        width: 250px;
+        height: 250px;
+        }
+      .title {
+        p {
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+      .main-result {
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        div {
+          color: $main1;
+          font-size: 18px;
+          font-weight: bold;
+          @media screen and (max-width: 768px) {
+            font-size: 16px;
+          }
+          @media screen and (max-width: 480px) {
+            font-size: 14px;
+          }
+        }
+      }
+      .continue_button {
+        a {
+          font-weight: bold;
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+    }
+
+  }
+  .count-2 {
+    position: absolute;
+    top: 58% !important;
+    left: 62% !important;
+  }
+  .count-3 {
+    position: absolute;
+    top: 58% !important;
+    left: 62% !important;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+}

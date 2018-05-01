@@ -1,0 +1,81 @@
+/*  Imported styles
+----------------------------------------------------*/
+@import "compass";
+@import "variables";
+@import "bootstrap";
+
+// Utilities
+@import "_utilities/mixins";
+
+// Molecules
+@import "_molecules/font-families";
+@import "_molecules/pico";
+@import "_molecules/svg-sprite";
+
+
+// ******************************
+// Import template styles
+// ******************************
+
+
+// Atoms
+@import "_atoms/buttons";
+@import "_atoms/code";
+@import "_atoms/forms";
+@import "_atoms/helper-classes";
+@import "_atoms/images";
+@import "_atoms/responsive-utilities";
+@import "_atoms/tables";
+@import "_atoms/typography";
+
+// Bootstrap Components
+@import "_bootstrap-components/alerts";
+@import "_bootstrap-components/badges";
+@import "_bootstrap-components/breadcrumbs";
+@import "_bootstrap-components/buttondropdowns";
+@import "_bootstrap-components/buttongroups";
+@import "_bootstrap-components/dropdowns";
+@import "_bootstrap-components/inputgroups";
+@import "_bootstrap-components/jumbotron";
+@import "_bootstrap-components/labels";
+@import "_bootstrap-components/listgroup";
+@import "_bootstrap-components/media";
+@import "_bootstrap-components/navbar";
+@import "_bootstrap-components/navs";
+@import "_bootstrap-components/pageheader";
+@import "_bootstrap-components/panels";
+@import "_bootstrap-components/progressbars";
+@import "_bootstrap-components/responsiveembed";
+@import "_bootstrap-components/thumbnails";
+@import "_bootstrap-components/wells";
+
+// Quarks
+@import "_quarks/fonts";
+@import "_quarks/links";
+@import "_quarks/lists";
+@import "_quarks/paragraphs";
+@import "_quarks/tables";
+
+// Base structure
+@import "_base/_header";
+@import "_base/_footer";
+@import "_base/_ui-view";
+@import "_base/_home-view";
+@import "_base/_rules";
+@import "_base/_results";
+@import "_base/_history";
+@import "_base/_25years";
+@import "_base/_winners";
+@import "_base/_mobile-slide";
+@import "_base/_dashboard";
+
+// For project ui
+@import "project-ui";
+
+
+// ******************************
+// Import other styles
+// ******************************
+@import "style";
+
+@import "../bower_components/font-awesome/scss/font-awesome";
