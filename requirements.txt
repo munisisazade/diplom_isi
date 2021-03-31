@@ -23,7 +23,7 @@ idna==2.5
 image==1.5.5
 jsonfield==1.0.3
 kombu==4.1.0
-lxml==4.1.0
+lxml==4.6.3
 numpy==1.13.1
 oauth2client==4.0.0
 oauthlib==2.0.2
